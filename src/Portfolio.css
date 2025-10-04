@@ -1,0 +1,240 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #1e3a8a;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar a:hover {
+  color: #2563eb;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background circles */
+.floating-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.floating-bg::before,
+.floating-bg::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  animation: float1 15s infinite ease-in-out;
+}
+.floating-bg::after {
+  width: 300px;
+  height: 300px;
+  background: rgba(37, 99, 235, 0.15);
+  animation: float2 20s infinite ease-in-out;
+  top: 50%;
+  left: 70%;
+}
+@keyframes float1 {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes float2 {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(40px) translateX(-30px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-pic .profile-pic .profile-pic .profile-pic .profile-pic {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: .circle;
+  display: .skills-container;
+  margin: 0 auto 20px;
+  border: 3px solid #2563eb;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Floating circles in hero background */
+.floating-bg .circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.role {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.tagline {
+  font-style: italic;
+  color: #555;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.card.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Metrics Badges */
+.metrics-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.badge {
+  background-color: #2563eb;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  display: inline-block;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.badge:hover {
+  transform: scale(1.05);
+  background-color: #1e3a8a;
+}
+
+/* Skills as floating boxes */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.skill-box {
+  background-color: #2563eb;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.95em;
+  cursor: default;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease, transform 0.5s ease;
+}
+.skill-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.skill-box:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* CTA Buttons */
+.cta-btn {
+  display: inline-block;
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 12px 25px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.cta-btn:hover {
+  transform: scale(1.05);
+  background-color: #1e3a8a;
+}
